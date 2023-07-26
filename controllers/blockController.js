@@ -19,6 +19,9 @@ const findCorrectHash = (blockNumber, data, prevHash) => {
 const saveBlock = async (req, res) => {
     try{
         //new data
+        if(!req.body.data) {
+            throw new Error("Require data value field.");
+        }
         const newData = (req.body.data);
 
         //prev data read
